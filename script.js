@@ -29,13 +29,6 @@ function createCard(name, role, email, img) {
   cardRow.appendChild(cardColBody);
 }
 
-createCard(
-  "Laura Rossi",
-  "Designer",
-  "laurarossi@teamMembers.com",
-  "img/female1.png"
-);
-
 const teamMembers = [
   {
     name: "Marco Bianchi",
@@ -74,3 +67,9 @@ const teamMembers = [
     img: "img/female3.png",
   },
 ];
+
+for (let i = 0; i < teamMembers.length; i++) {
+  const currentMember = teamMembers[i];
+  const { name, role, email, img } = currentMember;
+  createCard(name, role, email, img);
+}
