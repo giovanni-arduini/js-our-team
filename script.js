@@ -10,11 +10,12 @@ function createCard(name, role, email, img) {
   cardRow.className = "row no-gutters";
 
   const cardImg = document.createElement("div");
-  cardImg.className = "col-md-4";
+  cardImg.className = "col-4";
   cardImg.innerHTML = `<img src="${img}" class="card-img-center" style="width: 100%" alt="..." />`;
 
   const cardColBody = document.createElement("div");
-  cardColBody.innerHTML = `<div class="card-body">
+  cardColBody.classList = "card-body col-8";
+  cardColBody.innerHTML = `
                   <h5 class="card-title member-name">${name}</h5>
                   <p class="card-text member-role">${role}</p>
                   <p class="card-text member-email text-info">
@@ -68,8 +69,12 @@ const teamMembers = [
   },
 ];
 
-for (let i = 0; i < teamMembers.length; i++) {
-  const currentMember = teamMembers[i];
-  const { name, role, email, img } = currentMember;
-  createCard(name, role, email, img);
+function refreshTeamCards() {
+  for (let i = 0; i < teamMembers.length; i++) {
+    const currentMember = teamMembers[i];
+    const { name, role, email, img } = currentMember;
+    createCard(name, role, email, img);
+  }
 }
+
+refreshTeamCards();
